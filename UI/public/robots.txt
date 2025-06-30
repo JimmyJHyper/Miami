@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://miamimotorcyclerentals.com
+
+# Sitemaps
+Sitemap: https://miamimotorcyclerentals.com/sitemap.xml

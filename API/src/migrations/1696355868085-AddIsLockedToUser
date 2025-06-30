@@ -1,0 +1,13 @@
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class AddIsLockedToUser1696355868085 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(
+      `ALTER TABLE users ADD COLUMN is_locked TINYINT NOT NULL DEFAULT 0`,
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`ALTER TABLE users DROP COLUMN is_locked;`);
+  }
+}

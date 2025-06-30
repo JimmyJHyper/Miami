@@ -1,0 +1,56 @@
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
+
+export class UpdateUserNoVerificationrequest {
+  @ApiProperty()
+  @IsNotEmpty()
+  firstName: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  lastName: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  phoneNumber: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  email: string;
+
+  @ApiProperty()
+  currentPassword: string;
+
+  @ApiProperty()
+  password: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  dateOfBirth: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  country: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  city: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  streetAddress: string;
+
+  @ApiProperty()
+  aptSuite: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  state: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  postalCode: string;
+
+  @ApiProperty()
+  verificationCode: string;
+}
