@@ -241,8 +241,8 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       OrderStatusEnum.REQUESTED,
     );
 
-    this.mailService.sendRentRequestToClient(updatedOrder, pricing);
-    this.mailService.sendRentRequestToOwner(updatedOrder, pricing);
+    // this.mailService.sendRentRequestToClient(updatedOrder, pricing);
+    // this.mailService.sendRentRequestToOwner(updatedOrder, pricing);
 
     return plainToClass(UpdateBikeOrderResponse, updatedOrder, {
       excludeExtraneousValues: true,
