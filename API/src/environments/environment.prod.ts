@@ -5,5 +5,5 @@ export const environment: ApiEnvironment = {
   frontEndUrl: 'https://book.miamiscooterrentals.com/',
   wpJsonBaseUrl: 'https://www.miamimotorcyclerentals.com',
   stripeSecretKey:
-    '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',
+    'sk_test_51Rfh58PQZbqKx5aTU62Gs2lLpv6qszB6AwUOKsLjSPfbb3CJZMvNQnP0uk8ukVB3lGntqJuFsnjRWV0wkS04OQsQ0076rks8O2',
 };
