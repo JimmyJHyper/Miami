@@ -164,7 +164,13 @@ export class BikeRentalOrder extends BikeRentalBase {
   @JoinColumn({ name: 'bike_id' })
   bike: Bike;
 
-  
+  @Column({
+    nullable: true,
+    name: 'coupon_id',
+    
+    default: null,
+  })
+  couponId: number | null;
   
   
 

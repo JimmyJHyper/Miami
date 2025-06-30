@@ -162,6 +162,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       pricing,
       insurancePlan,
       OrderStatusEnum.ON_CHECKOUT,
+      coupon.id
     );
 
     const updatedOrder = await this.bikeRentalRepository.updateOrder(bikeOrder);
@@ -228,7 +229,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
         accessories.push(newAccessory);
       });
     }
-    NO COUPON UPDATE !!!!!!!!!!!!
+    
     bikeOrder.accessories = accessories;
     bikeOrder.status = OrderStatusEnum.REQUESTED;
     await this.bikeRentalRepository.updateOrder(bikeOrder);
@@ -371,6 +372,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     pricing: CalculationResult,
     insurancePlan: BikeInsurancePlan,
     status: string,
+    couponId:number | null
   ): BikeRentalOrder {
     bikeOrder.orderTotalAmount = pricing.total;
     bikeOrder.orderSubTotalAmount = pricing.subTotal; //Rental total cost excluding sales tax
@@ -385,6 +387,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     bikeOrder.status = status;
     bikeOrder.stripePaymentId = request.stripePaymentId;
     bikeOrder.bikeInsurancePlan = insurancePlan;
+    bikeOrder.couponId = couponId
 
     const accessories: BikeAccessoryOrder[] = [];
     if (isArray(request.accessories)) {

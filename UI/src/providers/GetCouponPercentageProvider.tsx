@@ -38,9 +38,6 @@ setCouponPercentage(res.data.percentage)
 useEffect(()=>{
   console.log("useEffect")
     getCoupon()
-    
-    
-    
 },[couponInput])
 
 

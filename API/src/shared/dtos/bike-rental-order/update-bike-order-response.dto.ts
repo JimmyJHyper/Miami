@@ -58,6 +58,9 @@ export class UpdateBikeOrderResponse extends BaseBikeOrderResponse {
   @Expose()
   accessories!: BikeAccessoryOrderResponse[];
 
+  @ApiResponseProperty()
+  couponId:number|null;
+
  
 
 }

@@ -7,6 +7,13 @@ import { CouponUpdateDto } from 'src/shared/dtos/coupon/coupon-update.dto';
 import { NotFoundException } from '@nestjs/common';
 import { LockBannerRequest } from 'src/shared/dtos/banner/lock-banner-request';
 import { Coupon } from '../entity/coupon.entity';
+import { empty } from 'rxjs';
+const emptyCoupon:Coupon = {
+  id:null,
+  percentage:0,
+  activated:false,
+  code:""
+}
 @Injectable()
 export class CouponService {
 constructor(private couponRepository: CouponRepository){}
@@ -85,7 +92,7 @@ async lockCoupon(
   }
   async byCode(code:string): Promise<Coupon>{
     const selectedCoupon = await this.couponRepository.byCode(code)
-    if(!selectedCoupon){ throw new NotFoundException('Coupon not found'); }WHAAAAAAAAAAAAAAAATT!!!!
+    if(!selectedCoupon){  return emptyCoupon }
     return selectedCoupon
   }
 
