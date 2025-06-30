@@ -13,6 +13,7 @@ export class CreateTables1663174512624 implements MigrationInterface {
             PRIMARY KEY (id)
           ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;`,
     );
+    
     await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS customer (
             id int NOT NULL AUTO_INCREMENT,
