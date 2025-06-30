@@ -217,11 +217,6 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       bikeOrder.bikeId,
       orderRequest.roadAssistance,
       coupon.percentage
-      
-      
-     
-     
-      
     ) as CalculationResult;
 
     const accessories: BikeAccessoryOrder[] = [];

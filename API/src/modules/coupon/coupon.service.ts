@@ -85,7 +85,7 @@ async lockCoupon(
   }
   async byCode(code:string): Promise<Coupon>{
     const selectedCoupon = await this.couponRepository.byCode(code)
-    if(!selectedCoupon){ throw new NotFoundException('Coupon not found'); }
+    if(!selectedCoupon){ throw new NotFoundException('Coupon not found'); }WHAAAAAAAAAAAAAAAATT!!!!
     return selectedCoupon
   }
 
