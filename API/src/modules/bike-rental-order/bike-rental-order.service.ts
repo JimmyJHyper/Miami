@@ -228,6 +228,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
         accessories.push(newAccessory);
       });
     }
+    NO COUPON UPDATE !!!!!!!!!!!!
     bikeOrder.accessories = accessories;
     bikeOrder.status = OrderStatusEnum.REQUESTED;
     await this.bikeRentalRepository.updateOrder(bikeOrder);
