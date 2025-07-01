@@ -151,7 +151,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       new Set(orderRequest.accessories),
       bikeOrder.bikeId,
       orderRequest.roadAssistance,
-      coupon.percentage
+      coupon.percentage??0
      
       
     ) as CalculationResult;
@@ -162,7 +162,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       pricing,
       insurancePlan,
       OrderStatusEnum.ON_CHECKOUT,
-      coupon.id
+      coupon
     );
 
     const updatedOrder = await this.bikeRentalRepository.updateOrder(bikeOrder);
@@ -186,7 +186,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       value: orderRequest,
     });
     let bikeOrder = await this.getOrderById(orderId);
-    let coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)??emptyCoupon
+    let coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     if (!bikeOrder.isVerified) {
       throw new UnauthorizedException('Order is not verified.');
     }
@@ -217,7 +217,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       new Set(orderRequest.accessories),
       bikeOrder.bikeId,
       orderRequest.roadAssistance,
-      coupon.percentage
+      coupon.percentage??0
     ) as CalculationResult;
 
     const accessories: BikeAccessoryOrder[] = [];
@@ -373,8 +373,10 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     pricing: CalculationResult,
     insurancePlan: BikeInsurancePlan,
     status: string,
-    couponId:number | null
+    coupon:Coupon
   ): BikeRentalOrder {
+
+
     bikeOrder.orderTotalAmount = pricing.total;
     bikeOrder.orderSubTotalAmount = pricing.subTotal; //Rental total cost excluding sales tax
     bikeOrder.insuranceDailyRate = pricing.coverageCost.rate;
@@ -388,7 +390,8 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     bikeOrder.status = status;
     bikeOrder.stripePaymentId = request.stripePaymentId;
     bikeOrder.bikeInsurancePlan = insurancePlan;
-    bikeOrder.couponId = couponId;
+    bikeOrder.couponId = coupon.id;
+    bikeOrder.coupon = coupon
     
 
     

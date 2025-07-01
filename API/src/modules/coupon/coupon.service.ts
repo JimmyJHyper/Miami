@@ -8,12 +8,7 @@ import { NotFoundException } from '@nestjs/common';
 import { LockBannerRequest } from 'src/shared/dtos/banner/lock-banner-request';
 import { Coupon } from '../entity/coupon.entity';
 import { empty } from 'rxjs';
-const emptyCoupon:Coupon = {
-  id:null,
-  percentage:0,
-  activated:false,
-  code:""
-}
+
 @Injectable()
 export class CouponService {
 constructor(private couponRepository: CouponRepository){}
@@ -94,7 +89,7 @@ async lockCoupon(
   //Instead of returning empty coupon, we return null if the coupon is not found don't return empty coupon
   async byCode(code:string): Promise<Coupon>{
     const selectedCoupon = await this.couponRepository.byCode(code)
-    if(!selectedCoupon){  return emptyCoupon }
+    if(!selectedCoupon){  return null }
     return selectedCoupon
   }
 

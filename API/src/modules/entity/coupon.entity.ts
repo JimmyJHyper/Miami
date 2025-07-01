@@ -2,9 +2,10 @@ import { Column, Entity,  PrimaryGeneratedColumn} from "typeorm";
 import { OneToMany } from "typeorm";
 import { BikeRentalOrder } from "./bike-rental-order.entity";
 import { IntegerTransformer } from "src/core/transformer/integer-transformer";
+import { BikeRentalBase } from "./base.entity";
 @Entity({name: 'coupons'})
 // check the banner entity class to get the created_at and updated "extends BikeRentalBase" and register them in the database
-export class Coupon {
+export class Coupon extends BikeRentalBase {
 @PrimaryGeneratedColumn()
 id:number;
 
