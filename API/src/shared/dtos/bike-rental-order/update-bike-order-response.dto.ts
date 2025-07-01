@@ -2,7 +2,7 @@ import { ApiResponseProperty } from '@nestjs/swagger';
 import { Expose, Type } from 'class-transformer';
 import { ValidateNested } from 'class-validator';
 import { BikeAccessoryOrderResponse, BaseBikeOrderResponse } from '..';
-
+import { Coupon } from 'src/modules/entity/coupon.entity';
 export class UpdateBikeOrderResponse extends BaseBikeOrderResponse {
   @ApiResponseProperty()
   @Expose()
@@ -59,7 +59,9 @@ export class UpdateBikeOrderResponse extends BaseBikeOrderResponse {
   accessories!: BikeAccessoryOrderResponse[];
 
   @ApiResponseProperty()
-  couponId:number|null;
+  coupon_Id:number| null;
+  @ApiResponseProperty()
+  coupon:Coupon| null;
 
  
 

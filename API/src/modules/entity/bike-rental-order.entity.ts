@@ -7,7 +7,7 @@ import { BikeInsurancePlan } from './bike-insurance-plan.entity';
 import { User } from './user.entity';
 import { Bike } from './bike.entity';
 import { integer } from 'aws-sdk/clients/cloudfront';
-
+import { Coupon } from './coupon.entity';
 @Entity({ name: 'bike_rental_orders' })
 export class BikeRentalOrder extends BikeRentalBase {
   @Column({
@@ -142,7 +142,13 @@ export class BikeRentalOrder extends BikeRentalBase {
     default: 0,
   })
   insuranceDailyRate: number;
-
+@Column({
+    nullable: true,
+    name: 'coupon_id',
+    type: 'int',
+    
+  })
+  couponId: number|null;
   @ManyToOne(() => User, { nullable: false })
   @JoinColumn({ name: 'user_id' })
   user: User;
@@ -166,13 +172,11 @@ export class BikeRentalOrder extends BikeRentalBase {
   // Where is the complete coupon discount amount stored?
   // The coupon discount amount is not stored in this entity.
   // There is no relation to the coupon check above how the bike is connected to the order Many to one relation is not defined
-  @Column({
-    nullable: true,
-    name: 'coupon_id',
+  @ManyToOne(() => Coupon, { nullable: true })
+  @JoinColumn({ name: 'coupon_id'
     
-    default: null,
-  })
-  couponId: number | null;
+   })
+  coupon: Coupon | null;
   
   
 

@@ -388,7 +388,10 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     bikeOrder.status = status;
     bikeOrder.stripePaymentId = request.stripePaymentId;
     bikeOrder.bikeInsurancePlan = insurancePlan;
-    bikeOrder.couponId = couponId
+    bikeOrder.couponId = couponId;
+    
+
+    
 
     const accessories: BikeAccessoryOrder[] = [];
     if (isArray(request.accessories)) {
@@ -400,7 +403,7 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
       });
     }
     bikeOrder.accessories = accessories;
-
+console.log("bike order couponnnnnnnnnn",bikeOrder.coupon)
     return bikeOrder;
   }
 
