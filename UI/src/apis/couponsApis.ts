@@ -4,7 +4,7 @@ import AlertMessage from "@/components/Alerts/AlertMessage";
 import { Password } from "@mui/icons-material";
 import { Coupon } from '../types/admin/admin';
 import { json } from 'stream/consumers';
-
+//use prettier to format the code to be more readable
 
 const baseApiUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
 const emptyCoupon = {
@@ -53,7 +53,8 @@ export const getAllCouponsApi = (): Promise<any> => {
     else throw new Error("Failed to get all coupons");
   });
 };
-
+// if you want to use id =0 check it before send to the backend
+//the request should not be sent if the id is 0 or null or undefined
 export const getCouponByIdApi = (id: number) => {
   const token = localStorage.getItem("SESSION_ID");
   return fetch(`${baseApiUrl}/coupon/${id}`, {
@@ -66,7 +67,7 @@ export const getCouponByIdApi = (id: number) => {
     else throw new Error("Failed to get coupon");
   });
 };
-
+// changeCoupon status is not used remove it
 export const changeCouponStatus = (userId: number, type: number) => {
   return true;
   const token = localStorage.getItem("SESSION_ID");
@@ -95,6 +96,7 @@ export const changeCouponStatus = (userId: number, type: number) => {
     })
     .catch((e) => {});
 };
+//delte coupon is not used remove it
 export const deleteCoupon = (bannerId: number, type: number) => {
   return true;
   const token = localStorage.getItem("SESSION_ID");

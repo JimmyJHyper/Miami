@@ -30,7 +30,8 @@ import { CouponUpdateDto } from 'src/shared/dtos/coupon/coupon-update.dto';
 import { FormDataRequest, FileSystemStoredFile } from 'nestjs-form-data';
 import { RolesGuard } from 'src/guards/role.guard';
 import { LockBannerRequest } from 'src/shared/dtos/banner/lock-banner-request';
-
+//there is no security for the admin to create a coupon
+//use prettier to format the code to be more readable
 @Controller('coupon')
 export class CouponController {
 constructor(private couponservice: CouponService) {}

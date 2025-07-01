@@ -16,7 +16,7 @@ import {
   VerifiedOrder,
   VerifyOrderPayload,
 } from "@/types";
-import { Banner, BasePricePayload, User, Coupon} from "@/types/admin/admin";
+import { Banner, BasePricePayload, User, Coupon } from "@/types/admin/admin";
 import { BookedDate } from "@/types/booking";
 
 export type BookingContextType = {
@@ -76,9 +76,6 @@ export type BookingContextType = {
   getBikeBookedDates: (bikeId: number) => void;
   bikeBookedDiscounts: any | undefined;
   getBikeBookedDiscounts: (bikeId: number) => void;
-  
-  
-  
 };
 
 export type MarketingContextType = {
@@ -174,15 +171,12 @@ export type CouponContextType = {
   isGetAllCouponsLoading: boolean;
 };
 export type CouponPercentageContextType = {
-  couponCode:string;
-  setCouponCode:React.Dispatch<React.SetStateAction<string>>;
-  couponPercentage:number;
-  setCouponPercentage:React.Dispatch<React.SetStateAction<number>>;
-  couponInput:string;
-  setCouponInput:React.Dispatch<React.SetStateAction<string>>;
-  couponFound:boolean;
-    setCouponFound:React.Dispatch<React.SetStateAction<boolean>>
-   
- 
-   
-}
+  couponCode: string;
+  setCouponCode: React.Dispatch<React.SetStateAction<string>>;
+  couponPercentage: number;
+  setCouponPercentage: React.Dispatch<React.SetStateAction<number>>;
+  couponInput: string;
+  setCouponInput: React.Dispatch<React.SetStateAction<string>>;
+  couponFound: boolean;
+  setCouponFound: React.Dispatch<React.SetStateAction<boolean>>;
+};

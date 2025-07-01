@@ -6,7 +6,7 @@ import { getAllCouponsApi, getCouponByIdApi } from "@/apis/couponsApis";
 import { Coupon } from "@/types/admin/admin";
 import { getCouponPercentage } from "@/utils/helpers";
 const CouponPercentageContext = React.createContext<CouponPercentageContextType | null>(null);
-
+// what is the meaning of using two seperated providers for coupons and coupon percentage?
 export function useCouponPer() {
   return useContext(CouponPercentageContext);
 }

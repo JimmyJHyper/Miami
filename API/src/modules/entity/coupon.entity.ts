@@ -3,6 +3,7 @@ import { BikeRentalOrder } from "./bike-rental-order.entity";
 import { IntegerTransformer } from "src/core/transformer/integer-transformer";
 
 @Entity({name: 'coupons'})
+// check the banner entity class to get the created_at and updated "extends BikeRentalBase" and register them in the database
 export class Coupon {
 @PrimaryGeneratedColumn()
 id:number;

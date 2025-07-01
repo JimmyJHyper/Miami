@@ -22,14 +22,13 @@ export function CouponProvider({ children }: Props) {
   );
   const [allCoupons, setAllCoupons] = useState<Coupon[] | undefined>([]);
   const [isGetAllCouponsLoading, setIsGetAllCouponsLoading] = useState(true);
-  
 
   const getAllCoupons = () => {
     setIsGetAllCouponsLoading(true);
     getAllCouponsApi()
       .then((res: AllCouponsResponse) => {
         setAllCoupons(res.data ?? []);
-        
+
         setIsGetAllCouponsLoading(false);
       })
       .catch((err: any) => {
@@ -42,7 +41,8 @@ export function CouponProvider({ children }: Props) {
       .then((res: CouponResponse) => setSelectedCoupon(res.data))
       .catch((err: any) => {});
   };
-
+  //here the first Id is not - it must be null 0 means there is ID and that's wrong
+  // null or undefined is better in this case means there is no value
   useEffect(() => {
     if (selectedCouponId != 0) {
       getCouponById(selectedCouponId);
@@ -50,12 +50,12 @@ export function CouponProvider({ children }: Props) {
 
     return () => {};
   }, [selectedCouponId]);
-
+  //get all coupons on initial load is wrong specially that the normal user don't have access to get all the coupons
+  //so we will get all coupons only when the user is admin 
+  // check that in the backend if not admin return empty array []
   useEffect(() => {
     getAllCoupons();
   }, []);
-
-  
 
   const value: CouponContextType = {
     selectedCouponId,
@@ -67,12 +67,9 @@ export function CouponProvider({ children }: Props) {
     setAllCoupons,
     getCouponById,
     isGetAllCouponsLoading,
-    
   };
-  
 
   return (
     <CouponContext.Provider value={value}>{children}</CouponContext.Provider>
   );
 }
-
