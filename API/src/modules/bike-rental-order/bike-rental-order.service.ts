@@ -365,7 +365,8 @@ const coupon:Coupon = await this.couponService.byCode(orderRequest.couponCode)
     
     return initialBikeOrder;
   }
-
+  //Coupon amount is not stored in the order.
+  //Check the order entity for the coupon relation and columns
   private buildUpdatedRentalRequest(
     bikeOrder: BikeRentalOrder,
     request: UpdateBikeRentalRequest,

@@ -163,7 +163,9 @@ export class BikeRentalOrder extends BikeRentalBase {
   @ManyToOne(() => Bike, { nullable: true })
   @JoinColumn({ name: 'bike_id' })
   bike: Bike;
-
+  // Where is the complete coupon discount amount stored?
+  // The coupon discount amount is not stored in this entity.
+  // There is no relation to the coupon check above how the bike is connected to the order Many to one relation is not defined
   @Column({
     nullable: true,
     name: 'coupon_id',

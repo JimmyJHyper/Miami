@@ -29,4 +29,6 @@ default: false,
 
 })
 activated:boolean;
+
+//There is no relation to the order check how the bike entity is connected to the order Many to one relation is not defined
 }

@@ -90,6 +90,8 @@ async lockCoupon(
     );
     return lockResult.activated == true ? 1 : 0;
   }
+
+  //Instead of returning empty coupon, we return null if the coupon is not found don't return empty coupon
   async byCode(code:string): Promise<Coupon>{
     const selectedCoupon = await this.couponRepository.byCode(code)
     if(!selectedCoupon){  return emptyCoupon }
